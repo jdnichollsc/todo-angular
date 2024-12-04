@@ -15,7 +15,7 @@ npx nx g @nx/angular:setup-tailwind web
 - Add daisyui and other tailwindcss dependencies:
 ```sh
 npm add -D @tailwindcss/aspect-ratio @tailwindcss/forms @tailwindcss/line-clamp @tailwindcss/typography daisyui@latest
-npm add -D postcss autoprefixer postcss-import @storybook/addon-styling-webpack
+npm add -D postcss autoprefixer postcss-import postcss-preset-env
 ```
 
 - Create new UI components:

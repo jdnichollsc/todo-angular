@@ -9,7 +9,7 @@ const variantStyles = {
 };
 
 @Component({
-  selector: 'lib-ui-button',
+  selector: 'todo-button',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './button.component.html',

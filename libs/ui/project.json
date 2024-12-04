@@ -47,10 +47,7 @@
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "configurations": {
         "production": {
-          "commands": [
-            "rm -rf dist/libs/ui",
-            "nx run ui:build-lib:production"
-          ],
+          "commands": ["rm -rf dist/libs/ui", "nx run ui:build-lib:production"],
           "parallel": false
         },
         "development": {

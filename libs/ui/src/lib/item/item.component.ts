@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
   selector: 'todo-item',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './item.component.html',
-  styleUrl: './item.component.css',
+  templateUrl: './item.component.html'
 })
 export class TodoItemComponent {}

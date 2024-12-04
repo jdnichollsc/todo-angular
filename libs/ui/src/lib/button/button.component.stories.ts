@@ -12,4 +12,10 @@ export const Primary: Story = {
   args: {
     variant: 'ghost',
   },
+  render: (args) => ({
+    props: args,
+    template: `<todo-button [variant]="variant">
+        <span>Click me</span>
+    </todo-button>`,
+  }),
 };
