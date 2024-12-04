@@ -1,16 +1,27 @@
 import type { StorybookConfig } from '@storybook/angular';
+import * as path from 'path';
 
 const config: StorybookConfig = {
   stories: ['../**/*.@(mdx|stories.@(js|jsx|ts|tsx))'],
-  addons: ['@storybook/addon-essentials', '@storybook/addon-interactions'],
+  addons: [
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
+    {
+      name: '@storybook/addon-styling-webpack', // Changed from addon-styling-webpack
+      options: {
+        postCss: true
+      },
+    },
+  ],
   framework: {
     name: '@storybook/angular',
     options: {
       builder: {
-        viteConfigPath: 'vite.config.mts',
+        viteConfigPath: '../vite.config.mts',
       },
     },
   },
+  staticDirs: ['../src/styles'],
 };
 
 export default config;

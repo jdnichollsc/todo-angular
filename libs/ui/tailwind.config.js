@@ -5,12 +5,11 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 const forms = require('@tailwindcss/forms');
 const typography = require('@tailwindcss/typography');
 const aspectRatio = require('@tailwindcss/aspect-ratio');
-const daisyui = require('daisyui');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    join(__dirname, 'src/**/!(*.stories|*.spec).{ts,html}'),
+    join(__dirname, '**/!(*.stories|*.spec).{ts,html}'),
     ...createGlobPatternsForDependencies(__dirname),
   ],
   theme: {
@@ -24,6 +23,5 @@ module.exports = {
     forms,
     typography,
     aspectRatio,
-    daisyui,
   ],
 };

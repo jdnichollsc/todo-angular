@@ -24,4 +24,7 @@ export default defineConfig({
       provider: 'v8',
     },
   },
+  css: {
+    postcss: './postcss.config.js'
+  }
 });

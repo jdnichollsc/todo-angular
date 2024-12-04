@@ -6,7 +6,7 @@
   "projectType": "library",
   "tags": [],
   "targets": {
-    "build": {
+    "build-angular": {
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "options": {
@@ -19,6 +19,46 @@
         },
         "development": {
           "tsConfig": "libs/ui/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "build-lib": {
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/dist/libs/ui"],
+      "configurations": {
+        "production": {
+          "commands": [
+            "nx run ui:build-angular:production",
+            "tailwindcss -c libs/ui/tailwind.config.js -i ./libs/ui/src/styles/index.css -o ./dist/libs/ui/themes/index.css -m"
+          ]
+        },
+        "development": {
+          "commands": [
+            "nx run ui:build-angular:development",
+            "tailwindcss -c libs/ui/tailwind.config.js -i ./libs/ui/src/styles/index.css -o ./dist/libs/ui/themes/index.css"
+          ]
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "configurations": {
+        "production": {
+          "commands": [
+            "rm -rf dist/libs/ui",
+            "nx run ui:build-lib:production"
+          ],
+          "parallel": false
+        },
+        "development": {
+          "commands": [
+            "rm -rf dist/libs/ui",
+            "nx run ui:build-lib:development"
+          ],
+          "parallel": false
         }
       },
       "defaultConfiguration": "production"
