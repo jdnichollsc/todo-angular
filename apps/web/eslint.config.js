@@ -24,6 +24,12 @@ module.exports = [
           style: 'kebab-case',
         },
       ],
+      '@angular-eslint/component-class-suffix': [
+        'error',
+        {
+          suffixes: ['Component', 'Page']  // Add 'Page' as an allowed suffix
+        }
+      ]
     },
   },
   {

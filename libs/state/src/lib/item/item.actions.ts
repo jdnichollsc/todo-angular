@@ -27,3 +27,12 @@ export const searchTodoItems = createAction(
   '[Item] Search Todo Items',
   props<{ searchTerm: string }>()
 );
+
+export const itemActions = {
+  loadTodoItems,
+  loadTodoItemsSuccess,
+  addTodoItem,
+  removeTodoItem,
+  toggleTodoItem,
+  searchTodoItems,
+};

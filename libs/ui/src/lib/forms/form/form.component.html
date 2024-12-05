@@ -1,0 +1,22 @@
+<!-- Error Message -->
+@if (showError) {
+<div class="animate-[fade-in-down_0.3s_ease-out] pb-8">
+    <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-2 rounded relative" role="alert">
+        <span class="block sm:inline">{{ errorMessage }}</span>
+    </div>
+</div>
+}
+
+<form #todoForm="ngForm" (ngSubmit)="onSubmit(todoForm)" class="relative flex gap-4 mb-6">
+
+
+    <input type="text" [(ngModel)]="title" name="title" #titleInput="ngModel" placeholder="Add a new todo item..."
+        class="todo-input flex-1" [class.border-red-500]="showError && !title.trim()" required />
+
+    <input type="datetime-local" [(ngModel)]="dueDate" name="dueDate" #dueDateInput="ngModel"
+        class="todo-input max-w-xs" [class.border-red-500]="showError && !dueDate" required />
+
+    <todo-button class="w-28" type="submit" [disabled]="todoForm.invalid">
+        Add Todo
+    </todo-button>
+</form>

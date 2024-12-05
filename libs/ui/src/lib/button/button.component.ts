@@ -14,9 +14,10 @@ const variantStyles = {
   imports: [CommonModule],
   templateUrl: './button.component.html',
 })
-export class ButtonComponent {
+export class TodoButtonComponent {
   @Input() variant: 'primary' | 'secondary' | 'accent' | 'ghost' = 'primary';
   @Input() class = '';
+  @Input() disabled: boolean | null = false;
 
   get variantStyle() {
     return variantStyles[this.variant];

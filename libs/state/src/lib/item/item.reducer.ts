@@ -18,21 +18,21 @@ export const itemFeatureKey = 'item';
 
 const todoReducer = createReducer(
   initialState,
-  produceOn(ItemActions.loadTodosSuccess, (state, { items }) => { 
+  produceOn(ItemActions.loadTodoItemsSuccess, (state, { items }) => {
     state.items = items;
   }),
-  produceOn(ItemActions.addTodo, (state, { item }) => {
+  produceOn(ItemActions.addTodoItem, (state, { item }) => {
     state.items.push(item);
   }),
-  produceOn(ItemActions.removeTodo, (state, { id }) => {
+  produceOn(ItemActions.removeTodoItem, (state, { id }) => {
     state.items = state.items.filter(item => item.id !== id);
   }),
-  produceOn(ItemActions.toggleTodo, (state, { id }) => {
+  produceOn(ItemActions.toggleTodoItem, (state, { id }) => {
     state.items = state.items.map(item =>
       item.id === id ? { ...item, completed: !item.completed } : item
     );
   }),
-  produceOn(ItemActions.searchTodos, (state, { searchTerm }) => {
+  produceOn(ItemActions.searchTodoItems, (state, { searchTerm }) => {
     state.searchTerm = searchTerm;
   })
 );
