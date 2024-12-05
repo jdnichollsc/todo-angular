@@ -15,6 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@todo-app/shared": ["libs/shared/src/index.ts"],
+      "@todo-app/state": ["libs/state/src/index.ts"],
       "@todo-app/ui": ["libs/ui/src/index.ts"]
     }
   },

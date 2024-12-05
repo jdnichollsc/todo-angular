@@ -1,5 +1,4 @@
 import type { StorybookConfig } from '@storybook/angular';
-import * as path from 'path';
 
 const config: StorybookConfig = {
   stories: ['../src/lib/**/*.@(mdx|stories.@(js|jsx|ts|tsx))'],
