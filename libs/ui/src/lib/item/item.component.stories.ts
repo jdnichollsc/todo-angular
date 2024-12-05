@@ -1,7 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/angular';
-import { TodoItemComponent } from './item.component';
 import { within } from '@storybook/testing-library';
 import { expect } from '@storybook/jest';
+import { Item } from '@todo-app/state';
+
+import { TodoItemComponent } from './item.component';
 
 const meta: Meta<TodoItemComponent> = {
   component: TodoItemComponent,
@@ -10,22 +12,26 @@ const meta: Meta<TodoItemComponent> = {
 export default meta;
 type Story = StoryObj<TodoItemComponent>;
 
+const mockItem: Item = {
+  id: '1',
+  title: 'Test Item',
+  dueDate: new Date(),
+  completed: false,
+  createdAt: new Date(),
+};
+
 export const Primary: Story = {
   args: {
-    text: 'Click me!',
-    padding: 10,
-    disabled: true,
+    item: mockItem,
   },
 };
 
 export const Heading: Story = {
   args: {
-    text: 'Click me!',
-    padding: 10,
-    disabled: true,
+    item: mockItem,
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    expect(canvas.getByText(/item works!/gi)).toBeTruthy();
+    expect(canvas.getByRole('button')).toBeTruthy();
   },
 };

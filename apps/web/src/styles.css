@@ -12,10 +12,6 @@
   @apply input input-bordered w-full;
 }
 
-.todo-button {
-  @apply btn btn-primary;
-}
-
 .todo-item {
   @apply flex items-center gap-4 p-4 bg-base-200 rounded-lg mb-2;
 }

@@ -1,4 +1,23 @@
 <div class="todo-container">
     <h1 class="text-4xl font-bold mb-8">Todo App</h1>
 
+    <todo-form (addTodo)="onAddTodoItem($event)" />
+
+    <todo-search (search)="onSearch($event)" />
+
+    <div class="space-y-4">
+        @for (item of filteredItems$ | async; track item.id; let i = $index) {
+        <todo-item class="
+              animate-[fade-in-up_0.5s_ease-out_forwards] 
+              opacity-0 
+              transition-all 
+              duration-300 
+              hover:scale-[1.02] 
+              hover:shadow-lg 
+              rounded-lg
+            " [style.animation-delay.ms]="i * 200" [item]="item" (toggleItem)="onToggleTodoItem($event)"
+            (removeItem)="onRemoveTodoItem($event)">
+        </todo-item>
+        }
+    </div>
 </div>

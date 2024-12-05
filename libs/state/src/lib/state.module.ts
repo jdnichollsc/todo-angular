@@ -10,10 +10,13 @@ import { ItemEffects } from './item';
 export interface State {
   [fromItem.itemFeatureKey]: fromItem.TodoState;
 }
+export type AppState = State;
 
 export const reducers: ActionReducerMap<State> = {
   item: fromItem.reducer,
 };
+
+export const effects = [ItemEffects];
 
 @NgModule({
   declarations: [],
@@ -24,13 +27,12 @@ export const reducers: ActionReducerMap<State> = {
         strictActionImmutability: true,
       },
     }),
-    EffectsModule.forRoot([
-      ItemEffects,
-    ]),
+    EffectsModule.forRoot(effects),
     StoreDevtoolsModule.instrument({
       name: 'Todo App Store',
       logOnly: !environment.production,
     }),
   ],
+  exports: [StoreModule, EffectsModule],
 })
 export class StateModule {}

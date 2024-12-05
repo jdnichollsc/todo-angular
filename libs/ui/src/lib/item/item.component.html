@@ -1,1 +1,19 @@
-<p>item works!</p>
+<div class="todo-item" [class.completed]="item.completed" [class.past-due]="isPastDue && !item.completed">
+    <input type="checkbox" [checked]="item.completed" (change)="toggleItem.emit(item.id)" class="checkbox" />
+    <div class="flex-1">
+        <h3 class="font-bold" [class.line-through]="item.completed">
+            {{ item.title }}
+        </h3>
+        <p class="text-sm opacity-70">
+            Due: {{ formatDueDate() }}
+            <span *ngIf="isPastDue && !item.completed" class="text-error">
+                (Past due)
+            </span>
+        </p>
+    </div>
+    <button type="button" class="btn btn-ghost btn-circle" (click)="removeItem.emit(item.id)">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+    </button>
+</div>

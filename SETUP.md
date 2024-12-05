@@ -22,6 +22,10 @@ npm add -D postcss autoprefixer postcss-import postcss-preset-env
 ```sh
 npx nx g @nx/angular:component --name=item\
  --path=libs/ui/src/lib/item/item
+npx nx g @nx/angular:component --name=form\
+ --path=libs/ui/src/lib/forms/form/form
+npx nx g @nx/angular:component --name=search\
+ --path=libs/ui/src/lib/inputs/search/search
 ```
 
 - Add library for state management
@@ -34,4 +38,9 @@ npm add @ngrx/store @ngrx/effects @ngrx/signals @ngrx/store-devtools
 ```sh
 npx nx g @nx/angular:library libs/shared --buildable --import-path=@todo-app/shared
 npm add -D @ngx-env/builder
+```
+
+- Add utilities
+```sh
+npm add date-fns
 ```
