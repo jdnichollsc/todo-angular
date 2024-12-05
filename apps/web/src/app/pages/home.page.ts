@@ -26,19 +26,20 @@ export default class HomePage implements OnInit {
     this.store.dispatch(itemActions.loadTodoItems());
   }
 
-  onAddTodoItem(item: Item): void {
+  onAddTodoItem(item: Item) {
     this.store.dispatch(itemActions.addTodoItem({ item }));
   }
 
-  onToggleTodoItem(id: string): void {
+  onToggleTodoItem(id: string) {
     this.store.dispatch(itemActions.toggleTodoItem({ id }));
   }
 
-  onRemoveTodoItem(id: string): void {
+  onRemoveTodoItem(id: string) {
     this.store.dispatch(itemActions.removeTodoItem({ id }));
   }
 
-  onSearch(searchTerm: string): void {
+  onSearch(value: string) {
+    const searchTerm = value.trim();
     this.store.dispatch(itemActions.searchTodoItems({ searchTerm }));
   }
 }
