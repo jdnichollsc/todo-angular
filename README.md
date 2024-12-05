@@ -31,7 +31,7 @@ This project uses Nx workspace and follows a modular architecture:
 
 - `apps/web`: Main application
 - `libs/ui`: Reusable UI components
-- `libs/state`: State management and data services
+- `libs/state`: State management and storage services
 - `libs/shared`: Shared utilities and interfaces
 
 ## Generate New Projects
@@ -59,7 +59,7 @@ You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx 
 - **Storage**: LocalStorage
 - **Build Tool**: Nx
 - **Architecture**: Smart Containers/Dumb Components
-- **Styling**: [Your choice of CSS solution]
+- **Styling**: TailwindCSS/DaisyUI
 
 ## Development Guidelines
 
