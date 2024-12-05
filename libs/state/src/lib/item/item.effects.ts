@@ -2,16 +2,16 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { map, tap } from 'rxjs/operators';
 
-import * as TodoActions from './item.actions';
+import * as ItemActions from './item.actions';
 
 @Injectable()
-export class TodoEffects {
+export class ItemEffects {
   loadTodos$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(TodoActions.loadTodos),
+      ofType(ItemActions.loadTodoItems),
       map(() => {
         //const todos = this.storageService.loadTodos();
-        return TodoActions.loadTodosSuccess({ items: [] });
+        return ItemActions.loadTodoItemsSuccess({ items: [] });
       })
     )
   );
@@ -20,9 +20,9 @@ export class TodoEffects {
     () =>
       this.actions$.pipe(
         ofType(
-          TodoActions.addTodo,
-          TodoActions.removeTodo,
-          TodoActions.toggleTodo
+          ItemActions.addTodoItem,
+          ItemActions.removeTodoItem,
+          ItemActions.toggleTodoItem
         ),
         tap(() => {
           //const state = (window as any).store.getState();

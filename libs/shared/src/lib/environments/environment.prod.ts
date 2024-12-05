@@ -1,3 +1,3 @@
 export const environment = {
-  production: true,
+  production: import.meta.env.NODE_ENV === 'production',
 };

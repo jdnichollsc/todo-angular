@@ -32,6 +32,6 @@ npm add @ngrx/store @ngrx/effects @ngrx/signals @ngrx/store-devtools
 
 - Add library for shared settings
 ```sh
-npx nx g @nx/angular:library libs/shared --import-path=@todo-app/shared
+npx nx g @nx/angular:library libs/shared --buildable --import-path=@todo-app/shared
 npm add -D @ngx-env/builder
 ```

@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { ActionReducerMap, StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
+import { environment } from '@todo-app/shared';
 
 import * as fromItem from './item';
-
-const isDev = !environment.production;
+import { ItemEffects } from './item';
 
 export interface State {
   [fromItem.itemFeatureKey]: fromItem.TodoState;
@@ -23,7 +24,13 @@ export const reducers: ActionReducerMap<State> = {
         strictActionImmutability: true,
       },
     }),
-    StoreDevtoolsModule.instrument({ name: 'Todo App Store', logOnly: isDev }),
+    EffectsModule.forRoot([
+      ItemEffects,
+    ]),
+    StoreDevtoolsModule.instrument({
+      name: 'Todo App Store',
+      logOnly: !environment.production,
+    }),
   ],
 })
 export class StateModule {}

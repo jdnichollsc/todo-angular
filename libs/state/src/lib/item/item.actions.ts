@@ -2,28 +2,28 @@ import { createAction, props } from '@ngrx/store';
 
 import { Item } from './item.model';
 
-export const loadTodos = createAction('[Item] Load Todo Items');
-export const loadTodosSuccess = createAction(
+export const loadTodoItems = createAction('[Item] Load Todo Items');
+export const loadTodoItemsSuccess = createAction(
   '[Item] Load Todo Items Success',
   props<{ items: Item[] }>()
 );
 
-export const addTodo = createAction(
+export const addTodoItem = createAction(
   '[Item] Add Todo Item',
   props<{ item: Item }>()
 );
 
-export const removeTodo = createAction(
+export const removeTodoItem = createAction(
   '[Item] Remove Todo Item',
   props<{ id: string }>()
 );
 
-export const toggleTodo = createAction(
+export const toggleTodoItem = createAction(
   '[Item] Toggle Todo Item',
   props<{ id: string }>()
 );
 
-export const searchTodos = createAction(
+export const searchTodoItems = createAction(
   '[Item] Search Todo Items',
   props<{ searchTerm: string }>()
 );
